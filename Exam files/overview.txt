@@ -1,0 +1,7 @@
+2020 re: pipeline, cache, linux os, possible output fork, semaphores, virtual address, http, data transfer, network topology, network security 
+
+2021 re: data rep, cache, linux os, possible output fork, semaphores, process graph, virtual address, free value, network layers, data transfer, network topology, network security, pipeline
+
+2021: data rep, cache, linux os, possible fork, process graph, virtual address, free value, network application, network transport layer, network topology, network security, pipeline, 
+
+2020: pipeline, cache, linux os, race conditions, virtual address, free value, network application, network data transfer, network layer, topology, network security, 

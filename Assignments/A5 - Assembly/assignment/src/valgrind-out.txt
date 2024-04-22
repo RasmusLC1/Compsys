@@ -1,0 +1,187 @@
+==10781== Memcheck, a memory error detector
+==10781== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10781== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==10781== Command: ./main ../tests/hello.dis
+==10781== Parent PID: 331
+==10781== 
+--10781-- 
+--10781-- Valgrind options:
+--10781--    --leak-check=full
+--10781--    --show-leak-kinds=all
+--10781--    --track-origins=yes
+--10781--    --verbose
+--10781--    --log-file=valgrind-out.txt
+--10781-- Contents of /proc/version:
+--10781--   Linux version 4.4.0-19041-Microsoft (Microsoft@Microsoft.com) (gcc version 5.4.0 (GCC) ) #2311-Microsoft Tue Nov 08 17:09:00 PST 2022
+--10781-- 
+--10781-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--10781-- Page sizes: currently 4096, max supported 4096
+--10781-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--10781-- Reading syms from /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main
+--10781-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--10781--   Considering /usr/lib/debug/.build-id/45/87364908de169dec62ffa538170118c1c3a078.debug ..
+--10781--   .. build-id is valid
+--10781-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--10781--    object doesn't have a symbol table
+--10781--    object doesn't have a dynamic symbol table
+--10781-- Scheduler: using generic scheduler lock implementation.
+--10781-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==10781== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-10781-by-rasmus-on-???
+==10781== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-10781-by-rasmus-on-???
+==10781== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-10781-by-rasmus-on-???
+==10781== 
+==10781== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==10781== don't want to do, unless you know exactly what you're doing,
+==10781== or are doing some strange experiment):
+==10781==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=10781 ...command...
+==10781== 
+==10781== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==10781==   /path/to/gdb ./main
+==10781== and then give GDB the following command
+==10781==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=10781
+==10781== --pid is optional if only one valgrind process is running
+==10781== 
+==10781== error calling PR_SET_PTRACER, vgdb might block
+--10781-- REDIR: 0x4022e20 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--10781-- REDIR: 0x4022bf0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--10781-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--10781--    object doesn't have a symbol table
+--10781-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--10781--    object doesn't have a symbol table
+==10781== WARNING: new redirection conflicts with existing -- ignoring it
+--10781--     old: 0x04022e20 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--10781--     new: 0x04022e20 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--10781-- REDIR: 0x401f600 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--10781-- REDIR: 0x4023380 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--10781-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--10781--   Considering /usr/lib/debug/.build-id/18/78e6b475720c7c51969e69ab2d276fae6d1dee.debug ..
+--10781--   .. build-id is valid
+--10781-- REDIR: 0x48f2480 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1780 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f27b0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f10a0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f17e0 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f3c50 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x490ece0 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x490e820 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f25e0 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f2410 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1710 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1150 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f2540 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x490e7e0 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1670 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1230 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f2800 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f11d0 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f2950 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x490ff50 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x490e860 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1820 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1100 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1630 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48fabb0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f2850 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f23d0 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x490e930 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f1ae0 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f2750 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f26f0 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f3c90 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x48f28a0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10781-- REDIR: 0x49da500 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--10781-- REDIR: 0x48edb10 (libc.so.6:calloc) redirected to 0x483dce0 (calloc)
+--10781-- REDIR: 0x48ec0e0 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--10781-- REDIR: 0x48f1fa0 (libc.so.6:__GI_strstr) redirected to 0x4843ca0 (__strstr_sse2)
+--10781-- REDIR: 0x49d6530 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
+--10781-- REDIR: 0x49dd6e0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--10781-- REDIR: 0x49da6d0 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
+--10781-- REDIR: 0x49d6800 (libc.so.6:__rawmemchr_avx2) redirected to 0x4843580 (rawmemchr)
+--10781-- REDIR: 0x49d5bd0 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
+--10781-- REDIR: 0x49da310 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+--10781-- REDIR: 0x48ec6d0 (libc.so.6:free) redirected to 0x483c9d0 (free)
+--10781-- REDIR: 0x49dd6c0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+==10781== 
+==10781== HEAP SUMMARY:
+==10781==     in use at exit: 735,029 bytes in 181 blocks
+==10781==   total heap usage: 184 allocs, 3 frees, 747,317 bytes allocated
+==10781== 
+==10781== Searching for pointers to 181 not-freed blocks
+==10781== Checked 802,984 bytes
+==10781== 
+==10781== 16 bytes in 1 blocks are still reachable in loss record 1 of 10
+==10781==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x10A80B: assembly_create (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x109439: main (main.c:24)
+==10781== 
+==10781== 472 bytes in 1 blocks are still reachable in loss record 2 of 10
+==10781==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x48D492D: __fopen_internal (iofopen.c:65)
+==10781==    by 0x48D492D: fopen@@GLIBC_2.2.5 (iofopen.c:86)
+==10781==    by 0x10AFFD: read_exec (read_exec.c:56)
+==10781==    by 0x1094B9: main (main.c:34)
+==10781== 
+==10781== 472 bytes in 1 blocks are still reachable in loss record 3 of 10
+==10781==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x48D492D: __fopen_internal (iofopen.c:65)
+==10781==    by 0x48D492D: fopen@@GLIBC_2.2.5 (iofopen.c:86)
+==10781==    by 0x10B560: simulate (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x1094DC: main (main.c:36)
+==10781== 
+==10781== 1,277 bytes in 45 blocks are still reachable in loss record 4 of 10
+==10781==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x48F138E: strdup (strdup.c:42)
+==10781==    by 0x10A77F: assembly_set (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x10B396: read_exec (read_exec.c:113)
+==10781==    by 0x1094B9: main (main.c:34)
+==10781== 
+==10781== 1,852 bytes in 64 blocks are still reachable in loss record 5 of 10
+==10781==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x48F138E: strdup (strdup.c:42)
+==10781==    by 0x10A77F: assembly_set (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x10A70A: assembly_set (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x10B396: read_exec (read_exec.c:113)
+==10781==    by 0x1094B9: main (main.c:34)
+==10781== 
+==10781== 1,852 bytes in 64 blocks are definitely lost in loss record 6 of 10
+==10781==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x48F138E: strdup (strdup.c:42)
+==10781==    by 0x10A77F: assembly_set (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x10B396: read_exec (read_exec.c:113)
+==10781==    by 0x1094B9: main (main.c:34)
+==10781== 
+==10781== 8,192 bytes in 1 blocks are still reachable in loss record 7 of 10
+==10781==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x10A699: assembly_set (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x10B396: read_exec (read_exec.c:113)
+==10781==    by 0x1094B9: main (main.c:34)
+==10781== 
+==10781== 65,536 bytes in 1 blocks are still reachable in loss record 8 of 10
+==10781==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x10A980: get_page (memory.c:30)
+==10781==    by 0x10A9F2: memory_wr_w (memory.c:42)
+==10781==    by 0x109E3A: store_instruction (Decoder.c:109)
+==10781==    by 0x10B6F3: instruction_decoder (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x10B5E2: simulate (in /mnt/c/Users/smoot/Documents/Compsys/Assignments/A5/assignment/src/main)
+==10781==    by 0x1094DC: main (main.c:36)
+==10781== 
+==10781== 131,072 bytes in 2 blocks are still reachable in loss record 9 of 10
+==10781==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x10A980: get_page (memory.c:30)
+==10781==    by 0x10AB24: memory_wr_b (memory.c:63)
+==10781==    by 0x10B213: read_exec (read_exec.c:90)
+==10781==    by 0x1094B9: main (main.c:34)
+==10781== 
+==10781== 524,288 bytes in 1 blocks are still reachable in loss record 10 of 10
+==10781==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10781==    by 0x10A8E2: memory_create (memory.c:12)
+==10781==    by 0x10942B: main (main.c:23)
+==10781== 
+==10781== LEAK SUMMARY:
+==10781==    definitely lost: 1,852 bytes in 64 blocks
+==10781==    indirectly lost: 0 bytes in 0 blocks
+==10781==      possibly lost: 0 bytes in 0 blocks
+==10781==    still reachable: 733,177 bytes in 117 blocks
+==10781==         suppressed: 0 bytes in 0 blocks
+==10781== 
+==10781== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

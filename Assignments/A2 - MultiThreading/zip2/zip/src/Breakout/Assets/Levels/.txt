@@ -1,0 +1,52 @@
+Map:
+------------
+------------
+-aaaaaaaaaa-
+-aaaaaaaaaa-
+-000----000-
+-000-%%-000-
+-000-11-000-
+-000-%%-000-
+-000----000-
+-%%%%%%%%%%-
+-%%%%%%%%%%-
+-//////////-
+-##########-
+-2222222222-
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+Map/
+
+Meta:
+Name: LEVEL 1
+Time: 300
+Hardened: #
+MoveSide: 8
+MoveUp: 7
+RightDiagional: 6
+LeftDiagional: 5
+Communist: 4
+PowerUp: 3
+Unbreakable: 0
+Invisible: /
+Switch: a
+Teleporting: 2
+Meta/
+
+Legend:
+/) green-block.png
+%) blue-block.png
+0) grey-block.png
+1) orange-block.png
+2) purple-block.png
+#) teal-block.png
+Legend/

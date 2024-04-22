@@ -1,0 +1,10 @@
+sb a5,0(a1)
+lbu a5,1(a0)
+addi a0,a0,1
+addi a1,a1,1
+bne a5,zero,.L3
+sb a5,0(a1)
+lbu a5,1(a0)
+addi a0,a0,1
+addi a1,a1,1
+bne a5,zero,.L3

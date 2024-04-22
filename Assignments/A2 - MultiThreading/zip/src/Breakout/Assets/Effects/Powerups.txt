@@ -1,0 +1,7 @@
+PlayerSpeedPowerUp
+DoubleSizePowerUp
+ExtraLifePowerUp
+WidePowerUp
+MoreTimePowerUp
+InvinciblePowerup
+ExtraBallPowerup

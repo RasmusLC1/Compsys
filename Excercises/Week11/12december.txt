@@ -1,0 +1,33 @@
+Loop
+    addi x4,x4,1
+    slli x11,x4,5
+    add  x11,x16,x11
+    lw	 x11,8(x11)
+    slli x12,x4,2
+    add	 x12,x17,x12
+    sw   x11,0(x12)
+    bge  x9,x4,Loop
+
+_______________________________________
+SVAR:
+			1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22
+    addi x4,x4,1	IF	ID	EX	MEM	WB
+    slli x11,x4,5		IF	ID	STALL	STALL	EX	MEM	WB
+    add  x11,x16,x11			IF	STALL	STALL	ID	STALL	STALL	EX	MEM	WB
+    lw	 x11,8(x11)						IF	STALL	STALL	ID	STALL	STALL	EX	MEM	WB
+    slli x12,x4,2									IF	STALL	STALL	ID	EX	MEM	WB					
+    add	 x12,x17,x12												IF	ID	STALL	STALL	EX	MEM	WB
+    sw   x11,0(x12)													IF	STALL	STALL	ID	STALL	STALL	EX	MEM	WB													IF	STALL	STALL	ID	STALL	STALL	EX	MEM	WB												IF	STALL	STALL	ID	STALL	STALL	EX	MEM	WB
+    bge  x9,x4,Loop																IF	STALL	STALL	ID	EX	MEM	WB
+
+
+
+Addi og slli er afhængige pga x4
+SLLI og add er afhængige pga x11
+add og LW er afhængige pga x11
+ingen afhænighed mellem lw og slli
+slli og add er afhængige pga x12
+add og sw er afhængige pga x12
+ingen afhænighed mellem sw og bge
+
+hvis der ikke er skrevet noget i ogpgaven skal man skrive at man tager antagelserne at der ingen forwarding eller hop prediktion og at den er signle issue i opgaven, så skal man ikke tænke på det

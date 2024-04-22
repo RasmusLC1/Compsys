@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "textfilereader.h": "c",
+        "functions.h": "c"
+    }
+}

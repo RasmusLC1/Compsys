@@ -1,0 +1,29 @@
+fauxgrep 500
+943594200
+036037100
+
+= 907557100
+
+
+
+fauxgrep-mt 500
+756540900
+574475100
+
+= 182065800
+
+mt is 4.985 times faster
+
+histogram 100
+1666885290
+1666885358
+
+= 68
+
+
+histogram-mt 100
+1666885176
+1666885246
+=70
+
+somethings wrong here, mt should not be slower

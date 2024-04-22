@@ -1,0 +1,94 @@
+BoH
+8.15
+How many “Example” lines does this program print?
+1 #include "csapp.h"
+2
+3 void try() {
+4   if (Fork() == 0) {
+5     Fork(); Fork();
+6     printf("Example\n");
+7     return;
+8   }
+9   return;
+10}
+11
+12 int main() {
+13 try();
+14 printf("Example\n");
+15 exit(0)
+16}
+- The "Example" prints 9 times due to the 3 fork statements + the last print in main.
+
+8.23
+One of your colleagues is thinking of using signals to allow a parent process to
+count events that occur in a child process. The idea is to notify the parent each
+time an event occurs by sending it a signal and letting the parent’s signal handler
+increment a global counter variable, which the parent can then inspect after the
+child has terminated. However, when he runs the test program in Figure 8.45 on
+his system, he discovers that when the parent calls printf, counter always has a
+value of 2, even though the child has sent five signals to the parent. Perplexed, he
+comes to you for help. Can you explain the bug?
+-Due to the sleep
+
+
+12.17
+A. The program in Figure 12.46 has a bug. The thread is supposed to sleep for
+1 second and then print a string. However, when we run it on our system,
+nothing prints. Why?
+- Because the main function exits before the thread have time to wake up and print.
+
+B. You can fix this bug by replacing the exit function in line 10 with one of two
+different Pthreads function calls. Which ones?
+- pthread wait 
+
+12.18
+Using the progress graph in Figure 12.21, classify the following trajectories as
+either safe or unsafe.
+A. H2, L2, U2, H1, L1, S2, U1, S1, T1, T2
+B. H2, H1, L1, U1, S1, L2, T1, U2, S2, T2
+C. H1, L1, H2, L2, U2, S2, U1, S1, T1, T2
+
+
+- A is unsafe. When it goes from H1 to L1
+- B is safe.
+- C is unsafe. When it goes from H2 to L2 and U2 to S2.
+
+12.27
+Some network programming texts suggest the following approach for reading and
+writing sockets: Before interacting with the client, open two standard I/O streams
+on the same open connected socket descriptor, one for reading and one for writing:
+FILE *fpin, *fpout;
+fpin = fdopen(sockfd, "r");
+fpout = fdopen(sockfd, "w");
+
+When the server finishes interacting with the client, close both streams as follows:
+fclose(fpin);
+fclose(fpout);
+
+However, if you try this approach in a concurrent server based on threads,
+you will create a deadly race condition. Explain why.
+
+
+- the race condition will happend because multiple threads will share the same filedescriptor
+where multiple threads can try to read and write to the same filedescriptor.
+
+
+12.29
+
+Can the following program deadlock? Why or why not?
+Initially: a = 1, b = 1, c = 1.
+Thread 1: Thread 2:
+P(a); P(c);
+P(b); P(b);
+V(b); V(b);
+P(c); V(c);
+V(c);
+V(a);
+
+- p is decrement the semaphor and v is increment. So if one of the values is 0
+then it will lock. We can ignore a though since thread two does not use it.
+
+a-1 = a=0
+c-1 = c=0
+b-1 = b=0
+

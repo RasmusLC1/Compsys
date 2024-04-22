@@ -1,0 +1,35 @@
+4.5 In this exercise, we examine in detail how an instruction is executed in a 
+single-cycle datapath. Problems in this exercise refer to a clock cycle in which the 
+processor fetches the following instruction word: 0x00c6ba23.
+
+
+4.5.1 [10] <§4.4> What are the values of the ALU control unit’s inputs for this 
+instruction?
+
+	0	0	C	6A	A	2	3
+0000	0000	1100	0110	1010	1010	0010	0011
+
+|imm[11-5]   |	Rs2	Rs1	f3	MM[4-0]|    OPCODE  |
+
+Decimal version:
+OPCODE (00100011) 35
+IMM	20
+F3	2
+Rs1	13
+rs2	12
+
+
+SW X12 20(x13)
+
+
+4.5.2 [5] <§4.4> What is the new PC address after this instruction is executed? 
+Highlight the path through which this value is determined.
+PC becomes 4
+4.5.3 [10] <§4.4> For each mux, show the values of its inputs and outputs during 
+the execution of this instruction. List values that are register outputs at Reg [xn].
+
+The alu value is our SW value where we have 20 time 13 for the first mux, we therefore get 0 in the first mutux, then we write it to the address, so we get one and then finally we get 0
+
+4.5.4 [10] <§4.4> What are the input values for the ALU and the two add units?
+
+4.5.5 [10] <§4.4> What are the values of all inputs for the registers unit?

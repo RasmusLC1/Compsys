@@ -1,0 +1,20 @@
+Setup:
+perfect Branch prediction predicted in DE, takes one clock cycle and perfect cache hit
+load: FE DE AG MG Wb
+store: FE DE AG MM
+andre: FE DE EX WB
+Fe:2, De:2, Ex:2, Ag:1, Mm:1, Wb:2
+Write names of instructions, for example IF ID EX MEM WB
+                        1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29    30    31
+sb a5,0(a1)             FE    DE    EX    WB
+lbu a5,1(a0)                  FE    DE    EX    WB
+addi a0,a0,1                  FE    DE    EX    WB
+addi a1,a1,1                        FE    DE    EX    WB
+bne a5,zero,.L3                     FE    DE    EX    WB
+sb a5,0(a1)                               FE    DE    EX    WB
+lbu a5,1(a0)                                    FE    >>    DE    EX    WB
+addi a0,a0,1                                    FE    >>    DE    EX    WB
+addi a1,a1,1                                                FE    DE    EX    WB
+bne a5,zero,.                                               FE    DE    EX    WB
+All are according to restrictions
+IPC calculated from EX is 10/2.0 = 11.00

@@ -1,0 +1,77 @@
+fauxgrep 500
+1666968325
+1666968365
+
+= 40
+
+
+fauxgrep-mt 500 -8 threads
+1667040347
+1667040364
+
+= 17
+
+8 threads is 2.4 times faster
+
+fauxgrep-mt 500 -4 threads
+1666967258
+1666967275
+
+= 17
+
+4 threads is 2.4 times faster
+
+
+fauxgrep-mt 500 -2 threads
+1667042790
+1667042809
+
+= 19
+
+2 threads is 2.1 times faster
+
+
+
+FAUX_mt big file
+
+1667045571
+1667045600
+
+
+Faux big file
+1667045768
+1667045797
+
+________________________________________
+
+
+histogram 100
+1666968549
+1666968616
+
+
+
+= 67
+
+
+histogram-mt 100 -4 threads
+1666969400
+1666969420
+= 20
+
+4 threads is 3.56 times faster
+
+histogram-mt 100 -2 threads
+1667041892
+1667041917
+= 25
+
+2 threads is 2.68 times faster
+
+
+histogram-mt 100 -8 threads
+1667041986
+1667042006
+= 20
+
+8 threads is 3.56 times faster

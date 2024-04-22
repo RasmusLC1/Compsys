@@ -1,0 +1,82 @@
+Spg 1.1
+
+Hvad er IPC hvis løkken udføres uendeligt mange gange og alle hop forudsiges korrekt ?
+
+The way to find IPC (Instruction per clockcycle) is to look at the amount of clock cycles it takes from the first execute to the last.
+	1	2	3	4	5	6	7	8
+lw	if	ID	EX	MEM	WB	
+addi		if	ID	EX	MEM	WB
+sw			if	ID	EX	MEM	WB
+addi				if	ID	EX	MEM	WB
+
+
+In this example the first Ex starts at 3 and the last at 6, so in 5 clock cycles we do 4 instructions.
+
+So our IPC is 4/5
+
+
+spg 1.2
+
+														1  2  3  4  5  6  7  8  9
+addi x4,x4,1        Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
+slli x11,x4,5       Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb Ca Cb
+add  x11,x16,x11    Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb Ca Cb
+lw   x11,8(x11)     Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc wb Ca Cb
+slli x12,x4,2          Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- Ca Cb
+add  x12,x17,x12       Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
+sw   x11,0(x12)        Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ag ma mb mc -- Ca Cb
+-                                           Qu -- -- -- -- -- -- pk rd st
+bge  x9,x4,Loop        Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- -- -- -- Ca Cb
+addi x4,x4,1              Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- Ca Cb
+slli x11,x4,5             Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
+add  x11,x16,x11          Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb -- -- -- Ca Cb
+lw   x11,8(x11)           Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc wb Ca Cb
+slli x12,x4,2                Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- Ca Cb
+add  x12,x17,x12             Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
+sw   x11,0(x12)              Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ag ma mb mc -- Ca Cb
+-                                                 Qu -- -- -- -- -- -- pk rd st
+bge  x9,x4,Loop              Fa Fb Fc De Fu Al Rn Qu pk rd ex -- -- -- -- -- -- -- Ca Cb
+
+
+From the first ca to the last ca there are 9 clockcycles and we have 8 instructions, in the first loop, so our ipc is 8/9.
+
+Hvad er IPC for 20 gennemløb af løkken?
+ For 20 iterations we first look at the first cycle takes 8 cycles to start up, but then the following ones takes 5 cycles to complete.
+ For the final loop we need to roll back 10 as bge predicts that it will continue indefinitely, therefore we need to rollback from ex
+ back to fa, which are 10 extra cycles.
+ We can therefore say that our clockcycle for 20 iterations are, 8+19*4+10 = 90 clockcycles. There are 8 instructions per cycle, therefore
+ our total instructions are 20*8 = 160, therfore our final IPC is 160/90. If we compare that with the IPC for the first cycle, then
+ it has become a lot faster🐱‍🏍 
+
+For an infinite loop the first cycle becomes irrelevant, so we can just say 8 instructions per loop and each takes 4 clockcycles, so we get 8/4 IPC
+Spg 1.3
+
+Hvad er IPC for 20 gennemløb af løkken?
+
+Nedenfor ses to iterationer af den samme løkkekrop på en 8-vejs out-of-order mikroarkitektur med max 3 cache tilgange pr clock
+
+addi x4,x4,1        Fa Fb Fc De Fu Al Rn Qu pk rd ex wb Ca Cb
+slli x11,x4,5       Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb Ca Cb
+add  x11,x16,x11    Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb Ca Cb
+lw   x11,8(x11)     Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc wb Ca Cb
+slli x12,x4,2       Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- -- Ca Cb
+add  x12,x17,x12    Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb -- -- -- -- Ca Cb
+sw   x11,0(x12)     Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc -- Ca Cb
+-                                        Qu -- -- -- -- -- -- -- pk rd st
+bge  x9,x4,Loop     Fa Fb Fc De Fu Al Rn Qu -- pk rd ex -- -- -- -- -- -- Ca Cb
+addi x4,x4,1           Fa Fb Fc De Fu Al Rn Qu pk rd ex wb -- -- -- -- -- Ca Cb
+slli x11,x4,5          Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- Ca Cb
+add  x11,x16,x11       Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb -- -- -- Ca Cb
+lw   x11,8(x11)        Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc wb Ca Cb
+slli x12,x4,2          Fa Fb Fc De Fu Al Rn Qu -- pk rd ex wb -- -- -- -- -- Ca Cb
+add  x12,x17,x12       Fa Fb Fc De Fu Al Rn Qu -- -- pk rd ex wb -- -- -- -- Ca Cb
+sw   x11,0(x12)        Fa Fb Fc De Fu Al Rn Qu -- -- -- pk rd ag ma mb mc -- Ca Cb
+-                                           Qu -- -- -- -- -- -- -- pk rd st
+bge  x9,x4,Loop        Fa Fb Fc De Fu Al Rn Qu -- pk rd ex -- -- -- -- -- -- Ca Cb
+
+
+It takes 7 clock cycles to start it up the first loop and then it can do it can the following
+loops in 2 clock cycles each plus 12 because of the final bge prediction where
+we need to go backwats. So for 20 loops it will be 19*2+7+10 =  55 clockcycles
+in total. There are 7 instructions in each loop, so there are 20*7 = 140 instructions, therefore our
+IPC is 55/140

@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "assembly.h": "c",
+        "binaryconverter.h": "c",
+        "getcodes.h": "c",
+        "decoder.h": "c",
+        "stdlib.h": "c",
+        "memory.h": "c"
+    }
+}

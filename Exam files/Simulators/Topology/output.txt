@@ -1,0 +1,7 @@
+step	N’		D(B),p(B)	D(C),p(C)	D(D),p(D)	D(E),p(E)	D(F),p(F)
+0		A     	6, A		1, A		-16, A		-16, A		-16, A		
+1		AB    	6, A		1, A		-16, A		-16, A		-16, A		
+2		ABC   	-15, A		1, A		-16, A		-16, A		-16, A		
+3		ABCD  	-29, A		-13,  		-16, A		-16, A		-16, A		
+4		ABCDE 	-29, A		-13,  		-16, A		-16, A		-16, A		
+5		ABCDEF	-29, A		-13,  		-16, A		-16, A		-16, A		

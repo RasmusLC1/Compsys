@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "endian.h": "c",
+        "xlocale": "c",
+        "xstring": "c",
+        "networking.h": "c",
+        "sha256.h": "c",
+        "minunit.h": "c"
+    }
+}

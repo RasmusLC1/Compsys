@@ -1,0 +1,41 @@
+.5 In this exercise, we examine in detail how an instruction is executed in a 
+single-cycle datapath. Problems in this exercise refer to a clock cycle in which the 
+processor fetches the following instruction word: 0x00c6ba23.
+
+4.5.1 [10] <§4.4> What are the values of the ALU control unit’s inputs for this 
+instruction?
+
+
+Hex converted to binary:		 0000	0000	1100	0110	1010	1010	0010	0011
+Binary converted to RisV protocol: 	0000000	01100	01101	010	10100	0100011
+					
+see 5.1.png for explanation
+
+Our final instruction is then SW x12 20(x13)
+
+What this means is that we add 20 onto our x12value and store that value in x13
+
+4.5.2 [5] <§4.4> What is the new PC address after this instruction is executed? 
+Highlight the path through which this value is determined.
+
+the PC address is 4 after the instructions have been executed
+
+4.5.3 [10] <§4.4> For each mux, show the values of its inputs and outputs during 
+the execution of this instruction. List values that are register outputs at Reg [xn].
+
+see 5.2.png for flow
+
+In the first green run the PCSrc is 0
+
+After it returns following the red line it is 1 in ALUSrc as we are using our immediate, so 20 and add that to x12 and MemtoReg is 0 as we do not need to read from memory	
+
+
+4.5.4 [10] <§4.4> What are the input values for the ALU and the two add units?
+
+read reg1 = value on x13
+
+read reg2 = value on x12
+
+The first value for the ALU is 20 
+
+We then write so it becomes reg2 = x12+20

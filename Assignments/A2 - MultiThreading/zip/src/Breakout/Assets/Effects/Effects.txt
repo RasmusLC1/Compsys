@@ -1,0 +1,11 @@
+Teleporting
+Switch
+Invisible
+Unbreakable
+MoveSide
+MoveUp
+RightDiagional
+LeftDiagional
+Hardened
+Communist
+PowerUp

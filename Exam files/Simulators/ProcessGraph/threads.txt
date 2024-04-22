@@ -1,0 +1,6 @@
+P(a); P(b);
+P(b); P(a);
+P(c); P(c);
+V(c); V(c);
+V(a); V(b);
+V(b); V(a);

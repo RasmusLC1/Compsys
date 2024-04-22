@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xn8p2D/tVY8BD/lgjeQgAr8MXCnBHgqvcZvr7XLtJ2cKJ44RxG0pTBglgAmf6qYwVXQ9Ek8giXujQ++KFPhwUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\smoot\\Documents\\Compsys\\Excercises\\Week2\\Week2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\smoot\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\smoot\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\smoot\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\smoot\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

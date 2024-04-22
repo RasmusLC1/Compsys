@@ -1,0 +1,12 @@
+P3. Consider the polyalphabetic system shown in Figure 8.4. Will a chosen plaintext attack that is able to get the plaintext encoding of the message “The 
+quick brown fox jumps over the lazy dog.” be sufficient to decode all messages? Why or why not?
+
+No, because the values jumps between the 2 layers, so you would be able to make a good guess and the
+you can probably guess your way to the rest but not with 100% security
+
+
+ P8. Consider RSA with p = 7 and q = 13.
+a. What are n and z?
+b. Let e be 17. Why is this an acceptable choice for e?
+c. Find d such that de = 1 (mod z).
+d. Encrypt the message m = 9 using the key (n, e). Let c denote the corresponding ciphertext. Show all work

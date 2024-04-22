@@ -1,0 +1,43 @@
+Map:
+-----00-----
+AAAAA00AAAAA
+A###A00A###A
+A###A00A###A
+A###A--A###A
+A###A--A###A
+A###A--A###A
+A###A--A###A
+A###A--A###A
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+555555555555
+555555555555
+555555555555
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+------------
+Map/
+
+Meta:
+Name: LEVEL 4
+Unbreakable: 0
+PowerUp: A
+Switch: 5
+Communist: %
+Meta/
+
+Legend:
+5) blue-block.png
+0) orange-block.png
+#) darkgreen-block.png
+A) green-block.png
+%) yellow-block.png
+Legend/
